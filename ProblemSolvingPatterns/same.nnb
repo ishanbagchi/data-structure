@@ -1,0 +1,50 @@
+{
+    "cells": [
+        {
+            "language": "markdown",
+            "source": [
+                "The code below takes **O(n^2)** time complexity."
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "function same1(arr1, arr2) {\n\tif (arr1.length !== arr2.length) {\n\t\treturn false\n\t}\n\tfor (let i = 0; i < arr1.length; i++) {\n\t\tlet correctIndex = arr2.indexOf(arr1[i] ** 2)\n\t\tif (correctIndex === -1) {\n\t\t\treturn false\n\t\t}\n\t\tarr2.splice(correctIndex, 1)\n\t}\n\treturn true\n}"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "The code below has time complexity of **O(n)**"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "function same(arr1, arr2) {\n\tif (arr1.length !== arr2.length) {\n\t\treturn false\n\t}\n\tlet frequencyCounter1 = {}\n\tlet frequencyCounter2 = {}\n\tfor (let val of arr1) {\n\t\tfrequencyCounter1[val] = (frequencyCounter1[val] || 0) + 1\n\t}\n\tfor (let val of arr2) {\n\t\tfrequencyCounter2[val] = (frequencyCounter2[val] || 0) + 1\n\t}\n\tfor (let key in frequencyCounter1) {\n\t\tif (!(key ** 2 in frequencyCounter2)) {\n\t\t\treturn false\n\t\t}\n\t\tif (frequencyCounter2[key ** 2] !== frequencyCounter1[key]) {\n\t\t\treturn false\n\t\t}\n\t}\n\treturn true\n}"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "same([1, 2, 3, 2], [9, 1, 4, 4])"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "text/plain",
+                            "value": [
+                                "\u001b[33mtrue\u001b[39m"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
