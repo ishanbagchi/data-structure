@@ -27,7 +27,7 @@ class Stack {
 	}
 
 	pop() {
-		if (this.size === 0) return undefined
+		if (this.size === 0) return null
 		var poppedNode = this.last
 		if (this.size === 1) {
 			this.first = null
